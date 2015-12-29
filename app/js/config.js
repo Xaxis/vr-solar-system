@@ -17,11 +17,15 @@
       underscore:           'libs/vendor/underscore/underscore',
       backbone:             'libs/vendor/backbone/backbone',
       socketio:             '//localhost:9222/socket.io/socket.io',
+      three:                'libs/vendor/three/three.min',
 
       // Native modules
       util:                 'libs/native/util/util',
       devgrid:              'libs/native/devgrid/devgrid',
-      'modernizr-tests':    'libs/native/modernizr-tests/modernizr-tests'
+      'modernizr-tests':    'libs/native/modernizr-tests/modernizr-tests',
+
+      // App modules
+
     },
     shim: {
       'jquery.eye': ['jquery'],
