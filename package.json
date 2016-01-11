@@ -26,6 +26,5 @@
     "matchdep": "^0.3.0"
   },
   "dependencies": {
-    "three": "^0.73.0"
   }
 }
