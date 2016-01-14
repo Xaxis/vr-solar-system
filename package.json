@@ -1,21 +1,24 @@
 {
-  "name": "three-vr-boilerplate",
-  "version": "0.0.1",
-  "description": "Scaffolding for rapidly building Three.js/WebVR based applications.",
-  "main": "server.js",
+  "name": "vr-solar-system",
+  "version": "1.0.0",
+  "description": "Experimentation with WebVR for the purpose of making an interactive solar system.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Xaxis/three-vr-boilerplate.git"
+    "url": "git+https://github.com/Xaxis/vr-solar-system.git"
   },
   "author": "Wil Neeley <william.neeley@gmail.com> (https://github.com/Xaxis)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Xaxis/three-vr-boilerplate/issues"
+    "url": "https://github.com/Xaxis/vr-solar-system/issues"
   },
-  "homepage": "https://github.com/Xaxis/three-vr-boilerplate#readme",
+  "homepage": "https://github.com/Xaxis/vr-solar-system#readme",
   "dependencies": {
     "backbone": "^1.2.1",
     "jquery": "^2.1.4",
