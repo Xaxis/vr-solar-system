@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig ({
 
     /**
-     * Import project info
+     * Import project information
      */
     pkg: grunt.file.readJSON('package.json'),
 
@@ -10,8 +10,13 @@ module.exports = function(grunt) {
      * Project details
      */
     project: {
+      public: '/app/',
+      sass: '<%= project.public %>assets/sass',
+      css: [
+        '<%= project.public %>css/style.scss'
+      ],
       js: [
-        'src/3d-dag.js'
+        '<%= project.public %>js/*.js'
       ]
     },
 
@@ -24,31 +29,49 @@ module.exports = function(grunt) {
       ' * <%= pkg.title %>\n' +
       ' * @author <%= pkg.author %>\n' +
       ' * @version <%= pkg.version %>\n' +
-      ' * @license <%= pkg.license %>\n' +
+      ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
       ' */\n'
     },
 
     /**
-     * Minify JavaScript
+     * Sass task
      */
-    uglify: {
-      min: {
+    sass: {
+      dev: {
         options: {
+          style: 'expanded',
           banner: '<%= tag.banner %>',
-          mangle: true,
-          beautify: {
-            width: 80,
-            beautify: false
-          }
+          compass: true
         },
-        files: {
-          'dist/vr-solar-system.min.js': ['src/vr-solar-system.js']
-        }
+        files: [
+          {
+            expand: true,
+            cwd: 'app/assets/sass',
+            src: ['**/main.scss'],
+            dest: 'app/assets/css',
+            ext: '.css'
+          }
+        ]
+      },
+      dist: {
+        options: {
+          style: 'compressed',
+          compass: true
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'app/assets/sass',
+            src: ['**/main.scss'],
+            dest: 'app/assets/css',
+            ext: '.css'
+          }
+        ]
       }
     },
 
     /**
-     * Watch for file changes
+     * Watch task
      */
     watch: {
       options: {
@@ -56,27 +79,40 @@ module.exports = function(grunt) {
       },
       js: {
         files: [
-          'src/*.js'
+          'app/*.js',
+          'js/libs/native/**/*.js'
         ],
         options: {
-          spawn: false,
-          livereload: true
+          spawn: false
         },
-        tasks: ['uglify']
+        tasks: []
+      },
+      html: {
+        files: [
+          '**/*.html'
+        ],
+        options: {
+          spawn: false
+        }
+      },
+      sass: {
+        files: 'app/assets/sass/**/*.{scss,sass}',
+        tasks: ['sass:dev']
       }
     }
   });
 
   /**
-   * Load npm tasks
+   * Load grunt plugins
    */
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   /**
-   * Deffine tasks
+   * Default task
+   * Run `grunt` on the command line
    */
   grunt.registerTask('default', [
-    'uglify',
+    'sass:dev',
     'watch'
   ]);
 };

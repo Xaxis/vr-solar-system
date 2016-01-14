@@ -1,0 +1,20 @@
+//--------
+// Main
+//
+// Main Stylesheet Entry Point
+// This file combines imported files into a primary style sheet
+
+
+//--------
+// Variable definitions
+@import "partials/core/config";
+
+
+//--------
+// Core element and element library definitions
+@import "partials/core/base";
+
+
+//--------
+// Sitewide core layout structure
+@import "partials/layout/layout";
