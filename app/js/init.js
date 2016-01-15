@@ -2,7 +2,7 @@
  * App initialization module
  */
 define([
-  'main',
+  'Main',
   'router',
   'core/main/views/mainView'
 ], function(

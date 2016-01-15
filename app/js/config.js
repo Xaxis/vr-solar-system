@@ -29,9 +29,14 @@
       'vr-manager':                     'libs/vendor/bower/webvr-boilerplate/build/webvr-manager',
 
       // Native modules
-      util:                             'libs/native/Util/Util',
-      axes:                             'libs/native/Axes/Axes',
-      main:                             'libs/native/Main/Main'
+      Util:                             'libs/native/Util/Util',
+      CMath:                            'libs/native/CMath/CMath',
+      Axes:                             'libs/native/Axes/Axes',
+      Global:                           'libs/native/Global/Global',
+      BaseSolarSystem:                   'libs/native/Global/BaseSolarSystem',
+      OrbitalElements:                  'libs/native/OrbitalElements/OrbitalElements',
+      CelestialBodies:                  'libs/native/CelestialBodies/CelestialBodies',
+      Main:                             'libs/native/Main/Main'
     },
     shim: {
       'three.orbitcontrols': {

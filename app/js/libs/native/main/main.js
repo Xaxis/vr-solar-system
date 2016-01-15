@@ -3,7 +3,8 @@
  */
 define([
   'underscore',
-  'axes',
+  'Axes',
+  'CelestialBodies',
   'promise-polyfill',
   'three',
   'three.trackballcontrols',
@@ -11,7 +12,11 @@ define([
   'vr-effect',
   'vr-polyfill',
   'vr-manager'
-], function(_, Axes) {
+], function(
+  _,
+  Axes,
+  CelestialBodies
+) {
   var Main = function() {
     var main = {
 
@@ -82,7 +87,7 @@ define([
         this.renderer.setSize(win_w, win_h);
 
         // Initialize camera position
-        this.camera.position.set(0, 0, 50);
+        this.camera.position.set(0, 0, 4);
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
 
         // Apply VR headset positional data to camera.
@@ -120,8 +125,20 @@ define([
           isUndistorted: false
         });
 
+        // Load scene components
+        this.loader();
+
         // Begin rendering
         this.render();
+      },
+
+      /**
+       * Loads and initializes solar system components.
+       */
+      loader: function() {
+
+        // Load celestial bodies
+        CelestialBodies.init(this.scene);
       },
 
       /**
