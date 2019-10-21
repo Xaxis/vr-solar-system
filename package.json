@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Xaxis/vr-solar-system#readme",
   "dependencies": {
     "backbone": "^1.2.1",
-    "jquery": "^2.1.4",
+    "jquery": "^3.4.1",
     "lodash": "^4.0.0",
     "modernizr": "^3.0.0-alpha.4",
     "requirejs": "^2.1.19",
